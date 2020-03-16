@@ -1,6 +1,5 @@
 import yaml
 
-
 class ReadConfigFile:
     config_file_keys = []
     config_file_values = []
