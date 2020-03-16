@@ -1,0 +1,3 @@
+name: test
+source: https://raw.githubusercontent.com/plotly/datasets/master/2011_february_aa_flight_paths.csv
+format: csv
