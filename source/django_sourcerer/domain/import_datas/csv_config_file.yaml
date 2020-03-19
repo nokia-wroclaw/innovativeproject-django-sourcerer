@@ -8,5 +8,5 @@ columns:
     type: str
   - external_name: Postal
     type: str
-  - external_name: Population
-    type: int
+#  - external_name: Population
+#    type: int
