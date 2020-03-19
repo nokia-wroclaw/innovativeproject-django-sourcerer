@@ -2,5 +2,5 @@ import requests
 
 
 def get_data(endpoint):
-    csv_data = requests.get(endpoint)
-    print(csv_data.text)
+    response_csv_data = requests.get(endpoint)
+    print(response_csv_data.text)
