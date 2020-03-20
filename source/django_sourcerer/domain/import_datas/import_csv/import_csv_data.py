@@ -12,13 +12,16 @@ class HandleCsvData:
         self.handle_data()
 
     def import_data(self):
-        try:
-            csv_data = requests.get(self.endpoint, timeout=2)
-        except requests.exceptions.ConnectionError:
-            time.sleep(2)
-            csv_data = requests.get(self.endpoint, timeout=2)
-        except requests.exceptions.RequestException as e:
-            raise e
+
+        max_attempts = 3
+        for trial in range(max_attempts):
+            try:
+                csv_data = requests.get(self.endpoint, timeout=2)
+            except requests.exceptions.ConnectionError:
+                time.sleep(2)
+                csv_data = requests.get(self.endpoint, timeout=2)
+            else:
+                break
         return csv_data.content
 
     def handle_data(self):
