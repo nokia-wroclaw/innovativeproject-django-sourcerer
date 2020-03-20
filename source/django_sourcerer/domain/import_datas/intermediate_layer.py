@@ -1,10 +1,10 @@
 from source.django_sourcerer.domain.import_datas import parsing_config_file
-from source.django_sourcerer.domain.import_datas.import_csv import import_csv_data
+from source.django_sourcerer.domain.import_datas.import_csv_data import HandleCsvData
 
 
 class Adapter(object):
     _importers = {
-        'csv': import_csv_data
+        'csv': HandleCsvData
     }
 
     def __init__(self):
@@ -18,7 +18,7 @@ class Adapter(object):
 
     def get_data_type_columns(self):
         importer = self._importers[self.type]
-        importer.HandleCsvData(self.source, self.columns).import_data()
+        importer(self.source, self.columns).import_data()
 
 
 if __name__ == '__main__':
