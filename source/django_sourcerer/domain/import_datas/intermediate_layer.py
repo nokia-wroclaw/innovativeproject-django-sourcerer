@@ -21,5 +21,5 @@ class Adapter(object):
         importer(self.source, self.columns).import_data()
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':#..
     Adapter().get_data_type_columns()
