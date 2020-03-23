@@ -20,7 +20,7 @@ class TestIntermediateLayer(unittest.TestCase):
         mocking_importers = intermediate_layer.Adapter._importers["csv"]
         mocking_importers.import_data = MagicMock()
         mocking_importers.handle_data = MagicMock()
-        intermediate_layer.Adapter().get_data_type_columns()
+        intermediate_layer.Adapter(test_csv_yaml).get_data_type_columns()
 
         mocking_importers.import_data.assert_called()
 
