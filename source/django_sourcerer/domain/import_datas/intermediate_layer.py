@@ -7,8 +7,8 @@ class Adapter(object):
         'csv': HandleCsvData
     }
 
-    def __init__(self):
-        self.yaml_data = parsing_config_file.ReadConfigFile().import_yaml_file()
+    def __init__(self, yaml_file):
+        self.yaml_data = parsing_config_file.ReadConfigFile(yaml_file).import_yaml_file()
         self.source = self.yaml_data['source']
         self.type = self.yaml_data['format']
         self.get_columns = self.yaml_data['columns']
@@ -19,7 +19,3 @@ class Adapter(object):
     def get_data_type_columns(self):
         importer = self._importers[self.type]
         importer(self.source, self.columns).import_data()
-
-
-if __name__ == '__main__':#..
-    Adapter().get_data_type_columns()
