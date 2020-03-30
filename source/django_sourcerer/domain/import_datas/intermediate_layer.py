@@ -18,4 +18,4 @@ class Adapter(object):
 
     def get_data_type_columns(self):
         importer = self._importers[self.type]
-        HandleCsvData(self.source, self.columns).import_data()
+        importer(self.source, self.columns).import_data()
