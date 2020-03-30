@@ -1,7 +1,5 @@
 import unittest
 from unittest.mock import MagicMock, Mock
-import requests
-import requests_testing
 
 from source.django_sourcerer.domain.import_datas import intermediate_layer
 from source.django_sourcerer.domain.import_datas import parsing_config_file
@@ -14,8 +12,7 @@ test_csv_yaml = {'format': 'csv',
 
 
 class TestIntermediateLayer(unittest.TestCase):
-
-    def test_yaml_file_for_csv(self):
+    def test_csv_yaml_file_for_intermediate_layer(self):
         parsing_config_file.ReadConfigFile.import_yaml_file = Mock(return_value=test_csv_yaml)
         mocking_importers = intermediate_layer.Adapter._importers["csv"]
         mocking_importers.import_data = MagicMock()
@@ -30,17 +27,11 @@ class TestIntermediateLayer(unittest.TestCase):
     def test_yaml_file_for_json(self):
         pass
 
-    @requests_testing.activate
-    def test_requests(self):
-        requests_testing.add(
-            request={'url': 'https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv'},
-            response={'body': 'ok'})
-        resp = requests.get('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
+    def test_column_len(self):
+        parsing_config_file.ReadConfigFile.import_yaml_file = Mock(return_value=test_csv_yaml)
+        get_len_of_column = intermediate_layer.Adapter(test_csv_yaml)
 
-        assert resp.status_code == 200
-        assert len(requests_testing.calls) == 1
-        assert requests_testing.calls[
-                   0].request.url == 'https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv'
+        assert len(get_len_of_column.columns) == 1
 
 
 if __name__ == "__main__":
