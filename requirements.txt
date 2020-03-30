@@ -3,3 +3,5 @@ djangorestframework
 requests
 pyyaml
 pandas
+pytest
+requests-mock
