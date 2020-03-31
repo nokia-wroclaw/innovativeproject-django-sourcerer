@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 import requests
 import requests_mock
 
-from source.django_sourcerer.domain.import_datas.import_csv_data import HandleCsvData
+from django_sourcerer.domain import HandleCsvData
 
 endpoint = 'https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv'
 column = ['Rank']

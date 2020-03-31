@@ -1,5 +1,5 @@
-from source.django_sourcerer.domain.import_datas import parsing_config_file
-from source.django_sourcerer.domain.import_datas.import_csv_data import HandleCsvData
+from django_sourcerer.domain.import_datas import parsing_config_file
+from django_sourcerer.domain.import_datas.import_csv_data import HandleCsvData
 
 
 class Adapter(object):
