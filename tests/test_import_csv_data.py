@@ -3,21 +3,13 @@ from unittest.mock import MagicMock
 import requests
 import requests_mock
 
-from django_sourcerer.domain import HandleCsvData
+from django_sourcerer.domain.import_datas.import_csv_data import HandleCsvData
 
 endpoint = 'https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv'
 column = ['Rank']
 
 
 class TestImportCsvData(unittest.TestCase):
-    def test_requests(self):
-        session = requests.Session()
-        adapter = requests_mock.Adapter()
-        session.mount('mock', adapter)
-        adapter.register_uri('GET', endpoint)
-        resp = session.get(endpoint)
-
-        assert resp.status_code == 200
 
     def test_raise_error_condition(self):
         HandleCsvData(endpoint, column).import_data()
