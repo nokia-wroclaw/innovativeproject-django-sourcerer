@@ -26,4 +26,3 @@ class HandleCsvData:
     def handle_data(self):
         df = pd.read_csv(io.StringIO(self.import_data().decode('utf-8')), usecols=self.columns)
         return df
-
