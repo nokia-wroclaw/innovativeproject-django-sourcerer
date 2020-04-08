@@ -9,9 +9,12 @@ class HandleCsvData:
     def __init__(self, endpoint, columns):
         self.endpoint = endpoint
         self.columns = columns
-        self.handle_data()
 
-    def import_data(self):
+    def import_(self):
+        response = self._get_response()
+        return self._parse_data(response)
+
+    def _get_response(self):
         max_attempts = 3
         for trial in range(max_attempts):
             try:
@@ -23,6 +26,6 @@ class HandleCsvData:
                 break
         return csv_data.content
 
-    def handle_data(self):
-        df = pd.read_csv(io.StringIO(self.import_data().decode('utf-8')), usecols=self.columns)
+    def _parse_data(self, response):
+        df = pd.read_csv(io.StringIO(response.decode('utf-8')), usecols=self.columns)
         return df
