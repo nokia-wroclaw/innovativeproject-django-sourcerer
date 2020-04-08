@@ -18,13 +18,13 @@ class HandleCsvData:
         max_attempts = 3
         for trial in range(max_attempts):
             try:
-                csv_data = requests.get(self.endpoint, timeout=2)
+                response = requests.get(self.endpoint, timeout=2)
             except requests.exceptions.ConnectionError:
                 time.sleep(2)
-                csv_data = requests.get(self.endpoint, timeout=2)
+                response = requests.get(self.endpoint, timeout=2)
             else:
                 break
-        return csv_data.content
+        return response.content
 
     def _parse_data(self, response):
         df = pd.read_csv(io.StringIO(response.decode('utf-8')), usecols=self.columns)

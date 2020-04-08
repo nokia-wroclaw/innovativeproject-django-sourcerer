@@ -14,11 +14,10 @@ class TestIntermediateLayer(unittest.TestCase):
     def test_csv_yaml_file_for_intermediate_layer(self):
         parsing_config_file.ReadConfigFile.import_yaml_file = Mock(return_value=test_csv_yaml)
         mocking_importers = intermediate_layer.Adapter._importers["csv"]
-        mocking_importers.import_data = MagicMock()
-        mocking_importers.handle_data = MagicMock()
+        mocking_importers.import_ = MagicMock()
         intermediate_layer.Adapter(test_csv_yaml).get_data_type_columns()
 
-        mocking_importers.import_data.assert_called()
+        mocking_importers.import_.assert_called()
 
     def test_yaml_file_for_xls(self):
         pass

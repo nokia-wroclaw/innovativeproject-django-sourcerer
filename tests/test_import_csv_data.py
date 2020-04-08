@@ -1,6 +1,7 @@
 import unittest
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, Mock
 import requests
+import pandas as pd
 
 from django_sourcerer.domain.import_datas.import_csv_data import HandleCsvData
 
@@ -9,12 +10,20 @@ column = ['Rank']
 
 
 class TestImportCsvData(unittest.TestCase):
-    def test_import_data_method_return(self):
-        return_value = HandleCsvData(endpoint, column).import_data()
-        self.assertTrue(return_value is not None)
 
-    def test_raise_error_condition(self):
-        HandleCsvData(endpoint, column).import_data()
+    def test_parse_data_return_data_frame(self):
+        call_function = HandleCsvData(endpoint, column)
+
+        self.assertTrue(isinstance(call_function._parse_data(call_function._get_response()), pd.DataFrame))
+
+    def test_get_response_method_return_not_none(self):
+        call_function = HandleCsvData(endpoint, column)
+        test_return_value = call_function._get_response()
+
+        self.assertTrue(test_return_value is not None)
+
+    def test_get_response_raise_error_condition(self):
+        HandleCsvData(endpoint, column).import_()
         checking_call_error = requests.exceptions.ConnectionError()
         checking_call_error = MagicMock()
 
