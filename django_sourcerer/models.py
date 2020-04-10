@@ -1,13 +1,20 @@
-class Sth:
-    _fields = {
-        'str': 'CharField',
-        'int': 'IntegerField'
-    }
+from django.db import models
 
-    def __init__(self, parametreler_key, parametreler_value):
-        self.all_key = parametreler_key
-        self.all_value = parametreler_value
+from django_sourcerer.import_datas.intermediate_layer import Adapter
 
-    def call(self):
-        sthmore = self._fields[self.all_value[0]]
-        print(sthmore)
+
+class CreateModelBasedOnYamlFile(models.Model):
+    pass
+
+
+class HandleModels:
+
+    dic = Adapter().parse_models_values()
+
+    for k, v in dic.items():
+
+        if v == 'str':
+            CreateModelBasedOnYamlFile.add_to_class(k, models.CharField(max_length=255))
+        elif v == 'int':
+            CreateModelBasedOnYamlFile.add_to_class(k, models.IntegerField(max_length=255))
+
