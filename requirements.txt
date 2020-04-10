@@ -1,7 +1,7 @@
-django
-djangorestframework
-requests
-pyyaml
-pandas
-pytest
-requests-mock
+django == 3.0.4
+djangorestframework == 3.11.0
+requests == 2019.4.13
+pyyaml == 5.3
+pandas == 0.25.3
+pytest == 5.4.1
+requests-mock == 1.7.0
