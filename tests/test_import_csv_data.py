@@ -2,7 +2,7 @@ import unittest
 import pandas as pd
 import requests_mock
 
-from django_sourcerer.domain.import_datas.import_csv_data import HandleCsvData
+from django_sourcerer.import_datas.import_csv_data import HandleCsvData
 
 endpoint = 'https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv'
 column = ['Rank']
