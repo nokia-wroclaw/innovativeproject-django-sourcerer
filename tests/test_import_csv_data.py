@@ -23,7 +23,7 @@ class TestImportCsvData(unittest.TestCase):
         self.assertTrue(test_return_value is not None)
 
     @requests_mock.mock()
-    def test_func(self, mock_response):
+    def test_requests_response(self, mock_response):
         mock_response.get(endpoint, text=test_response_example)
         call_function = HandleCsvData(endpoint, column)._get_response().decode()
 
