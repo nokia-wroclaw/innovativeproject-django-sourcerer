@@ -1,12 +1,12 @@
 import unittest
-from unittest.mock import MagicMock, Mock
-import requests
 import pandas as pd
+import requests_mock
 
 from django_sourcerer.domain.import_datas.import_csv_data import HandleCsvData
 
 endpoint = 'https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv'
 column = ['Rank']
+test_response_example = 'Test Requests'
 
 
 class TestImportCsvData(unittest.TestCase):
@@ -21,8 +21,14 @@ class TestImportCsvData(unittest.TestCase):
         test_return_value = call_function._get_response()
 
         self.assertTrue(test_return_value is not None)
-#mock requests and check return value is same as our text variable
-#assert equal == our return response == mock return response
+
+    @requests_mock.mock()
+    def test_func(self, mock_response):
+        mock_response.get(endpoint, text=test_response_example)
+        call_function = HandleCsvData(endpoint, column)._get_response().decode()
+
+        self.assertEqual(call_function, test_response_example)
+
 
 if __name__ == "__main__":
     unittest.main()
