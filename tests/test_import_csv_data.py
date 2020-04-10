@@ -21,14 +21,8 @@ class TestImportCsvData(unittest.TestCase):
         test_return_value = call_function._get_response()
 
         self.assertTrue(test_return_value is not None)
-
-    def test_get_response_raise_error_condition(self):
-        HandleCsvData(endpoint, column).import_()
-        checking_call_error = requests.exceptions.ConnectionError()
-        checking_call_error = MagicMock()
-
-        checking_call_error.assert_not_called()
-
+#mock requests and check return value is same as our text variable
+#assert equal == our return response == mock return response
 
 if __name__ == "__main__":
     unittest.main()

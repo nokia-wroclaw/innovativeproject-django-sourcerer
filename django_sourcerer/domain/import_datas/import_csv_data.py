@@ -21,7 +21,6 @@ class HandleCsvData:
                 response = requests.get(self.endpoint, timeout=2)
             except requests.exceptions.ConnectionError:
                 time.sleep(2)
-                response = requests.get(self.endpoint, timeout=2)
             else:
                 break
         return response.content

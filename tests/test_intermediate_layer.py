@@ -27,9 +27,9 @@ class TestIntermediateLayer(unittest.TestCase):
 
     def test_column_len(self):
         parsing_config_file.ReadConfigFile.import_yaml_file = Mock(return_value=test_csv_yaml)
-        get_len_of_column = intermediate_layer.Adapter(test_csv_yaml)
+        get_column = intermediate_layer.Adapter(test_csv_yaml)
 
-        assert len(get_len_of_column.columns) == 1
+        assert get_column.columns == ["State"]
 
 
 if __name__ == "__main__":
