@@ -17,4 +17,3 @@ class HandleModels:
             CreateModelBasedOnYamlFile.add_to_class(k, models.CharField(max_length=255))
         elif v == 'int':
             CreateModelBasedOnYamlFile.add_to_class(k, models.IntegerField(max_length=255))
-

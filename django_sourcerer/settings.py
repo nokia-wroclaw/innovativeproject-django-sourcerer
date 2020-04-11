@@ -113,3 +113,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SOURCERER_CONFIG_FILES=[
+    '/Users/cemarslan/Desktop/innovativeproject-django-sourcerer/django_sourcerer/import_datas/csv_config_file.yaml'
+]

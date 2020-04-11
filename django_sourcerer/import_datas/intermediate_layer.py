@@ -1,5 +1,6 @@
 from django_sourcerer.import_datas import parsing_config_file
 from django_sourcerer.import_datas.import_csv_data import HandleCsvData
+from django_sourcerer.settings import SOURCERER_CONFIG_FILES
 
 
 class Adapter(object):
@@ -8,7 +9,7 @@ class Adapter(object):
     }
 
     def __init__(self):
-        yaml_file = '/Users/cemarslan/Desktop/innovativeproject-django-sourcerer/django_sourcerer/import_datas/csv_config_file.yaml'
+        yaml_file = SOURCERER_CONFIG_FILES[0]
         self.yaml_data = parsing_config_file.ReadConfigFile(yaml_file).import_yaml_file()
         self.source = self.yaml_data['source']
         self.type = self.yaml_data['format']
@@ -19,6 +20,7 @@ class Adapter(object):
         self.fields = []
         for i in self.get_columns:
             self.fields.append(i['type'])
+        self.name = self.yaml_data['name']
 
     def get_data_type_columns(self):
         importer = self._importers[self.type]
@@ -28,4 +30,5 @@ class Adapter(object):
         dict_of_columns_fields = dict(zip(self.columns, self.fields))
         return dict_of_columns_fields
 
-# Adapter().get_data_type_columns()
+    def parse_models_name(self):
+        return self.name
