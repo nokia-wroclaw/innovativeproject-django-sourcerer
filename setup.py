@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name='django_sourcerer',
-    version='1.0',
+    version='1.1',
     author="nokia",
     author_email="cmarslan06@gmail.com",
     description="Django app that import and correlating data from external sources.",
@@ -19,7 +19,7 @@ setuptools.setup(
         'pyyaml == 5.3.1',
         'pandas == 1.0.3',
         'pytest == 5.4.1',
-        'requests - mock == 1.7.0',
+        'requests-mock == 1.7.0',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
