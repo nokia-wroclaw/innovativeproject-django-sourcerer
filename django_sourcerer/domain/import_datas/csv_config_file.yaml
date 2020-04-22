@@ -1,0 +1,12 @@
+name: states
+source: https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv
+format: csv
+columns:
+  - external_name: Rank
+    type: int
+  - external_name: State
+    type: str
+  - external_name: Postal
+    type: str
+#  - external_name: Population
+#    type: int
