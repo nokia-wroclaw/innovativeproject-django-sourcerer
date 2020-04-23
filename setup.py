@@ -19,7 +19,7 @@ setuptools.setup(
         'pyyaml == 5.3.1',
         'pandas == 1.0.3',
         'pytest == 5.4.1',
-        'requests - mock == 1.7.0',
+        'requests-mock == 1.7.0',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
