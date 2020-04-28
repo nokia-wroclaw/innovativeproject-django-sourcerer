@@ -1,6 +1,7 @@
+from django.conf import settings
+
 from django_sourcerer.import_datas import parsing_config_file
 from django_sourcerer.import_datas.import_csv_data import HandleCsvData
-from django_sourcerer.settings import SOURCERER_CONFIG_FILES
 
 
 class Adapter(object):
@@ -9,7 +10,7 @@ class Adapter(object):
     }
 
     def __init__(self):
-        yaml_file = SOURCERER_CONFIG_FILES[0]
+        yaml_file = settings.SOURCERER_CONFIG_FILES[0]
         self.yaml_data = parsing_config_file.ReadConfigFile(yaml_file).import_yaml_file()
         self.source = self.yaml_data['source']
         self.type = self.yaml_data['format']

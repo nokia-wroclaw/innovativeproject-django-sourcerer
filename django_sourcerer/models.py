@@ -8,7 +8,6 @@ CreatingModelNamedAutomatically = type(Adapter().parse_models_name(), (models.Mo
 
 
 class HandleModels:
-
     dic = Adapter().parse_models_values()
 
     for k, v in dic.items():
