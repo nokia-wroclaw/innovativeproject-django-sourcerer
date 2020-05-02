@@ -1,3 +1,5 @@
+import os
+
 from django.conf import settings
 
 from django_sourcerer.import_datas import parsing_config_file
@@ -10,7 +12,7 @@ class Adapter(object):
     }
 
     def __init__(self):
-        yaml_file = settings.SOURCERER_CONFIG_FILES[0]
+        yaml_file = os.path.join(settings.BASE_DIR, settings.SOURCERER_CONFIG_FILES[0])
         self.yaml_data = parsing_config_file.ReadConfigFile(yaml_file).import_yaml_file()
         self.source = self.yaml_data['source']
         self.type = self.yaml_data['format']

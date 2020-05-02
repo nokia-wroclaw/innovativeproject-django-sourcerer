@@ -2,7 +2,7 @@ from django.db import models
 
 from django_sourcerer.import_datas.intermediate_layer import Adapter
 
-CreatingModelNamedAutomatically = type(Adapter().parse_models_name(), (models.Model,), {
+Models = type(Adapter().parse_models_name(), (models.Model,), {
     '__module__': __name__,
 })
 
@@ -13,6 +13,8 @@ class HandleModels:
     for k, v in dic.items():
 
         if v == 'str':
-            CreatingModelNamedAutomatically.add_to_class(k, models.CharField(max_length=255))
+            Models.add_to_class(k, models.CharField(max_length=255))
         elif v == 'int':
-            CreatingModelNamedAutomatically.add_to_class(k, models.IntegerField())
+            Models.add_to_class(k, models.IntegerField())
+        elif v == 'text':
+            Models.add_to_class(k, models.TextField(max_length=255))
