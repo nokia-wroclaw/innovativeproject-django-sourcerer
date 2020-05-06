@@ -1,7 +1,5 @@
 import pandas as pd
 import io
-from django_sourcerer.domain.import_datas.importer import Importer
-
 
 class JsonHandler:
     def __init__(self, columns, response):
