@@ -1,18 +1,11 @@
 import requests
 import time
-import pandas as pd
-import io
 
 
-class HandleCsvData:
+class Importer:
 
-    def __init__(self, endpoint, columns):
+    def __init__(self, endpoint):
         self.endpoint = endpoint
-        self.columns = columns
-
-    def import_(self):
-        response = self._get_response()
-        return self._parse_data(response)
 
     def _get_response(self):
         max_attempts = 3
@@ -25,6 +18,4 @@ class HandleCsvData:
                 break
         return response.content
 
-    def _parse_data(self, response):
-        df = pd.read_csv(io.StringIO(response.decode('utf-8')), usecols=self.columns)
-        return df
+

@@ -10,7 +10,7 @@ columns:
     type: int
   - external_name: type
     type: str
-  - external_name: shotType
-    type: str
-#  - external_name: gameID
-#    type: int
+ # - external_name: shotType
+ #   type: str
+  - external_name: gameID
+    type: int
