@@ -29,10 +29,9 @@ Then run following commands:
 ```
 ./manage.py migrate
 ```
-After those commands you can query to shell as following script:
+For update objects from source type following command:
 ```
-from django_sourcerer.models import Models
-Models.objects.values()
+./manage.py update_objects
 ```
 
 Library works with 'csv' datas now. It will be updated for json&xls formats.
