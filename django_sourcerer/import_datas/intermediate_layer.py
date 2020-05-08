@@ -25,9 +25,12 @@ class Adapter(object):
             self.fields.append(i['type'])
         self.name = self.yaml_data['name']
 
-    def get_data_type_columns(self):
+    def get_df(self):
         importer = self._importers[self.type]
-        importer(self.source, self.columns).import_()
+        call_function = importer(self.source, self.columns)
+        call_function.import_()
+        get_data = call_function.parse_data()
+        return get_data.to_dict('records')
 
     def parse_models_values(self):
         dict_of_columns_fields = dict(zip(self.columns, self.fields))

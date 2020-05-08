@@ -11,8 +11,7 @@ class HandleCsvData:
         self.columns = columns
 
     def import_(self):
-        response = self._get_response()
-        return self._parse_data(response)
+        return self._get_response()
 
     def _get_response(self):
         max_attempts = 3
@@ -25,6 +24,6 @@ class HandleCsvData:
                 break
         return response.content
 
-    def _parse_data(self, response):
-        df = pd.read_csv(io.StringIO(response.decode('utf-8')), usecols=self.columns)
+    def parse_data(self):
+        df = pd.read_csv(io.StringIO(self.import_().decode('utf-8')), usecols=self.columns)
         return df
