@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 from django_sourcerer.import_datas.intermediate_layer import Adapter
 
 from django_sourcerer.models import AutoModels
