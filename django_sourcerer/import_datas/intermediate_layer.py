@@ -36,5 +36,5 @@ class Adapter(object):
         dict_of_columns_fields = dict(zip(self.columns, self.fields))
         return dict_of_columns_fields
 
-    def parse_models_name(self):
+    def model_name(self):
         return self.name

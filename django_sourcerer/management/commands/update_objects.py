@@ -7,9 +7,9 @@ from django_sourcerer.models import AutoModels
 class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
-        instance = AutoModels().ModelsFromConfFile
-        records = Adapter().get_df()
 
+        instance = AutoModels().use_model()
+        records = Adapter().get_df()
         for i in records:
             to_db = [instance(**i)]
             instance.objects.bulk_create(to_db)
