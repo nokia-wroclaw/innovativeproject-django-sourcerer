@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django_sourcerer.models import AutoModels
+from rest_framework import viewsets
+from django_sourcerer.serializers import UserSerializer
 
-# Create your views here.
+
+class DjangoSourcerer(viewsets.ModelViewSet):
+    queryset = AutoModels().use_model().objects.all()
+    serializer_class = UserSerializer
