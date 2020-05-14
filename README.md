@@ -9,11 +9,12 @@
 ```pip install django-sourcerer```
 
 ## Usage
-Add `django_sourcerer` text to `settings.py` under `INSTALLED_APPS` list.
+Add `django_sourcerer` and `rest_framework` texts to `settings.py` under `INSTALLED_APPS` list.
 ```
 INSTALLED_APPS=[
     ... 
-    'django_sourcerer'
+    'django_sourcerer',
+    'rest_framework'
 ]
 ```
 Add also to `settings.py` information that where the config file is located.
@@ -33,8 +34,18 @@ For update objects from source type following command:
 ```
 ./manage.py update_objects
 ```
+For view in API Framework add following lines of code to your `urls.py` :
+```
+from django.urls import path, include
+from django_sourcerer.urls import django_sourcerer_urls
 
-Library works with 'csv' datas now. It will be updated for json&xls formats.
+urlpatterns = [
+    path('', include(django_sourcerer_urls().urls))
+]
+```
+Then just start the API `./manage.py runserver` .
+
+Library works with `csv` datas now. It will be updated for json&xls formats.
 
 ## Example .yaml File
 ```
