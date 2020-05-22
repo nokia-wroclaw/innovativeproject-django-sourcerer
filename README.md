@@ -45,7 +45,7 @@ urlpatterns = [
 ```
 Then just start the API `./manage.py runserver` .
 
-Library works with `csv` datas now. It will be updated for json&xls formats.
+Library works with `csv` and `json` datas now. It will be updated for xls formats.
 
 ## Example .yaml File
 ```
