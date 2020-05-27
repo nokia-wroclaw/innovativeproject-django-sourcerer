@@ -13,13 +13,11 @@ setuptools.setup(
     url="https://github.com/nokia-wroclaw/innovativeproject-django-sourcerer",
     packages=setuptools.find_packages(),
     install_requires=[
-        'django == 3.0.5',
-        'djangorestframework == 3.11.0',
+        'django',
+        'djangorestframework',
         'requests == 2.23.0',
         'pyyaml == 5.3.1',
         'pandas == 1.0.3',
-        'pytest == 5.4.1',
-        'requests-mock == 1.7.0',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
