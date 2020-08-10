@@ -1,0 +1,16 @@
+name: json_data
+source: https://raw.githubusercontent.com/plotly/datasets/master/PK_subban_shots.json
+format: json
+columns:
+  - external_name: count
+    type: int
+#  - external_name: y
+#    type: int
+  - external_name: x
+    type: int
+  - external_name: type
+    type: str
+ # - external_name: shotType
+ #   type: str
+  - external_name: gameID
+    type: int
