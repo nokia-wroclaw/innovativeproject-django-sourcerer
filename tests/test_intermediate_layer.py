@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock, Mock
 
-from django_sourcerer.domain.import_datas import intermediate_layer, parsing_config_file
+from django_sourcerer.import_datas import intermediate_layer, parsing_config_file
 
 test_csv_yaml = {'format': 'csv',
                  'source': 'https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv',

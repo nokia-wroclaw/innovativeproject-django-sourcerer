@@ -17,5 +17,8 @@ class Importer:
             else:
                 break
         return response.content
+<<<<<<< HEAD:django_sourcerer/import_datas/importer.py
+=======
 
 
+>>>>>>> master:tests/importer.py
