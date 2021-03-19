@@ -14,7 +14,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=[
         'django == 3.0.7',
-        'djangorestframework == 3.11.0',
+        'djangorestframework == 3.11.2',
         'requests == 2.23.0',
         'pyyaml == 5.3.1',
         'pandas == 1.0.3',
