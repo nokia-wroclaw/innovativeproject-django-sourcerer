@@ -16,7 +16,7 @@ setuptools.setup(
         'django == 3.0.7',
         'djangorestframework == 3.11.0',
         'requests == 2.23.0',
-        'pyyaml == 5.3.1',
+        'pyyaml == 5.4',
         'pandas == 1.0.3',
         'pytest == 5.4.1',
         'requests-mock == 1.7.0',
